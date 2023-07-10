@@ -1,6 +1,7 @@
 import Content from "component/content/content"
 import Header from "component/header/header"
 import Total from "component/total/Total"
+import "./App.css"
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -26,7 +27,7 @@ const App = () => {
     }
   ];
   return (
-    <div>
+    <div className="App">
       <Header name={course}/>
       <Content table={table} />
       <Total value={exercises1+exercises2+exercises3} />
