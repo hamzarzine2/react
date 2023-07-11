@@ -3,28 +3,34 @@ import Display from 'components/Display/Display'
 import { useState } from 'react'
 
 const App = () => {
-    const [ counter, setCounter ] = useState(0)
+    const [ counter, changeCount ] = useState(JSON.parse(localStorage.getItem("counter")))
   
-    const increaseByOne = () => setCounter(counter + 1)
-  
-    const decreaseByOne = () => setCounter(counter - 1)
-    const setToZero = () => setCounter(0)
+    const handleClick =(e)=> {
+        const value = e.target.dataset.delta;      
+          localStorage.setItem("counter", JSON.stringify(counter+parseInt(value)))
+        changeCount(counter+parseInt(value));
+
+    }
   
     return (
       <div>
         <Display counter={counter}/>
   
         <Button
-          handleClick={increaseByOne}
+          handleClick={handleClick}
           text='plus'
+          delta={1}
         />
         <Button
-          handleClick={setToZero}
+          handleClick={handleClick}
           text='zero'
+          delta={-counter}
+
         />     
         <Button
-          handleClick={decreaseByOne}
+          handleClick={handleClick}
           text='minus'
+          delta={-1}
         />           
       </div>
     )

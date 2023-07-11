@@ -1,3 +1,3 @@
-const Button = ({ handleClick, text }) => <button onClick={handleClick}>{text}</button>
+const Button = ({ handleClick, text,delta }) => <button onClick={handleClick} data-delta={delta}>{text}</button>
 
   export default Button;
