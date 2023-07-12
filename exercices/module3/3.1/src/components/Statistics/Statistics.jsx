@@ -1,13 +1,16 @@
 import Header from "components/Header/Header";
 import Count from "components/Count/Count";
+import Loading from "components/Loading/Loading";
+import { useState } from "react";
 const Statistics = ({ tableStats, positive, total }) => {
-  console.log(tableStats);
+    const [Load,setLoad]=useState(true);
+    setTimeout(()=>{setLoad(false)},3000)
 
-  if (total === 0) {
+  if (Load === true) {
     return (
       <>
         <Header text={"Statistics"} />
-        <p>No feedback given</p>
+        <Loading />
       </>
     );
   }
