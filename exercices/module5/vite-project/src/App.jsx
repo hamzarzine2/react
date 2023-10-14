@@ -8,7 +8,6 @@ import {ButtonBad} from './components/Button/ButtonBad'
 import { ResetALL } from './components/Button/ResetAll'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
